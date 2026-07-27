@@ -16,7 +16,6 @@ export default function CaseStudiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Case Studies"
         title="What actually happened, with the numbers attached."
         lede="Proof on hand today is illustrative — placeholder detail standing in for verified client results until real case data is supplied and published."
       />
@@ -44,7 +43,7 @@ export default function CaseStudiesPage() {
                   <p className="label text-text-muted">
                     {cs.client} · {cs.industry} · {cs.destination}
                   </p>
-                  <h2 className="font-display balance mt-3 text-[clamp(1.5rem,2vw+1rem,2.25rem)] leading-tight tracking-[-0.02em] text-text-on-paper">
+                  <h2 className="font-display balance mt-3 text-display-s text-text-on-paper">
                     {cs.headline}
                   </h2>
                   <p className="pretty mt-4 max-w-lg leading-relaxed text-text-muted">
@@ -53,7 +52,7 @@ export default function CaseStudiesPage() {
                   <div className="mt-7 flex flex-wrap gap-x-10 gap-y-4 border-t border-line pt-6">
                     {cs.stats.map((s) => (
                       <div key={s.label}>
-                        <p className="font-mono text-xl text-text-on-paper">{s.value}</p>
+                        <p className="font-mono tabular-nums text-xl text-text-on-paper">{s.value}</p>
                         <p className="label mt-1 text-text-muted">{s.label}</p>
                       </div>
                     ))}
@@ -68,7 +67,7 @@ export default function CaseStudiesPage() {
       <section className="bg-ink py-20 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 text-center">
           <Reveal>
-            <h2 className="font-display balance mx-auto max-w-lg text-[clamp(1.75rem,2.5vw+1rem,2.75rem)] leading-tight tracking-[-0.02em] text-text-on-ink">
+            <h2 className="font-display balance mx-auto max-w-lg text-display-s text-text-on-ink">
               Want a shortlist built around your own brief?
             </h2>
           </Reveal>

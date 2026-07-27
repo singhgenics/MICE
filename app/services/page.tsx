@@ -16,7 +16,6 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Services"
         title="The MICE acronym, actually built out."
         lede="Meetings, Incentives, Conferences, Exhibitions are four different logistics problems wearing one abbreviation. We staff, price, and deliver each one differently."
       />
@@ -55,7 +54,7 @@ export default function ServicesPage() {
                       {pillar.short}
                     </p>
                     <div className="mt-6 flex items-center gap-2 border-t border-line pt-4">
-                      <span className="font-mono text-lg text-text-on-paper">
+                      <span className="font-mono tabular-nums text-lg text-text-on-paper">
                         {pillar.stat.value}
                       </span>
                       <span className="label text-text-muted">{pillar.stat.label}</span>

@@ -32,7 +32,6 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Request a Proposal"
         title="Five minutes here gets you a shortlist, not a brochure."
         lede="Send the brief below. A delivery lead — not a chatbot, not a rotating inbox — replies with two or three matched destinations and a named contact."
       />
@@ -50,7 +49,7 @@ export default function ContactPage() {
                     <div className="flex gap-4">
                       <d.icon size={22} weight="light" className="mt-0.5 shrink-0 text-brass-strong" />
                       <div>
-                        <h3 className="font-display text-lg text-text-on-paper">{d.title}</h3>
+                        <h3 className="font-display text-xl text-text-on-paper">{d.title}</h3>
                         <p className="pretty mt-1 text-sm leading-relaxed text-text-muted">
                           {d.body}
                         </p>

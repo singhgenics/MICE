@@ -16,7 +16,6 @@ export default function VenuesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Venues"
         title="Named rooms, published capacities."
         lede="Every venue we recommend has a real clear-span number, a real breakout count, and a real name — not a theoretical maximum that assumes empty corridors."
       />
@@ -40,7 +39,7 @@ export default function VenuesPage() {
                   <p className="label text-text-muted">
                     {v.type} · {v.destination}
                   </p>
-                  <h2 className="font-display mt-2 text-2xl text-text-on-paper md:text-3xl">
+                  <h2 className="font-display balance mt-2 text-display-s text-text-on-paper">
                     {v.name}
                   </h2>
                   <p className="pretty mt-3 max-w-lg leading-relaxed text-text-muted">

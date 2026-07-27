@@ -17,7 +17,7 @@ export function ServicesBento() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="max-w-2xl">
           <Reveal>
-            <h2 className="font-display balance text-[clamp(2rem,2.5vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.025em] text-text-on-paper">
+            <h2 className="font-display balance text-display-l text-text-on-paper">
               Four ways an event converges here.
             </h2>
           </Reveal>

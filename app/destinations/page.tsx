@@ -17,7 +17,6 @@ export default function DestinationsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Destinations"
         title="Five destinations, none of them interchangeable."
         lede="Every destination on Confluence earns its place for a specific reason — a skyline, a ridge line, a freight tunnel. Pick the reason that matches your brief, not just the capacity number."
       />
@@ -45,7 +44,7 @@ export default function DestinationsPage() {
 
                   <div className="flex flex-col justify-center">
                     <p className="label text-text-muted">{d.region}</p>
-                    <h2 className="font-display balance mt-3 text-[clamp(1.75rem,2vw+1rem,2.75rem)] leading-tight tracking-[-0.02em] text-text-on-paper">
+                    <h2 className="font-display balance mt-3 text-display-s text-text-on-paper">
                       {d.name}
                     </h2>
                     <p className="mt-2 text-lg text-text-muted">{d.tagline}</p>
@@ -56,7 +55,7 @@ export default function DestinationsPage() {
                     <div className="mt-8 grid grid-cols-2 gap-x-8 gap-y-5 border-t border-line pt-6 sm:grid-cols-4">
                       {d.stats.map((s) => (
                         <div key={s.label}>
-                          <p className="font-mono text-xl text-text-on-paper">{s.value}</p>
+                          <p className="font-mono tabular-nums text-xl text-text-on-paper">{s.value}</p>
                           <p className="label mt-1 text-text-muted">{s.label}</p>
                         </div>
                       ))}

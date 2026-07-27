@@ -33,16 +33,23 @@ Contrast checked: `--text-on-paper` on `--paper` ≈ 15:1. `--text-muted` on `--
 
 Three families, one job each. Loaded via `next/font/google`, self-hosted at build time (no runtime third-party requests).
 
-- **Display — Fraunces** (variable serif, optical sizing on). Hero headlines, section headlines, pull quotes. Used sparingly — never body copy. Weight 480-560, optical size `"opsz" 32-72` for display sizes. Letter-spacing no tighter than `-0.02em`.
-- **UI/Body — Geist**. Navigation, body copy, buttons, forms, all product-style UI chrome. Weights 400/500/600. This is the workhorse face; 90% of text on the page is Geist.
-- **Data/Label — Geist Mono**. Stat callouts, capacity numbers, dates, form field labels styled as departure-board data (`12,000 DELEGATES`, `340 ROOMS`, `Q3 2027`). Uppercase, `tracking-[0.08em]`, small size. This is the one place uppercase-tracked text is allowed — it's doing a real job (reads as data), not decorating a section like a kicker would.
+- **Display — Bitter** (variable slab serif). Hero headlines, section headlines, sub-page H1s. Used sparingly — never body copy. Fixed weight 650 (baked into the `.font-display` class, not left to render at whatever default the variable font resolves to). A slab serif reads as sturdy and precise rather than literary/editorial — it also echoes the site's own departure-board data idiom (Geist Mono stat labels) instead of contradicting it with a boutique-editorial serif. *Changed from Fraunces*, which was on the brand register's reflex-reject font list and, combined with the mono-label-as-eyebrow pattern below, pulled the whole page into the reflex-reject "editorial-typographic" aesthetic lane. Letter-spacing fixed at `-0.02em` across every display step — this is a hard floor, not a per-size choice, so it can't drift per component again.
+- **UI/Body — Geist**. Navigation, body copy, buttons, forms, all product-style UI chrome. Weight 400 default, 500 for nav/button emphasis. This is the workhorse face; 90% of text on the page is Geist.
+- **Data/Label — Geist Mono**. Stat callouts, capacity numbers, dates. Uppercase, `tracking-[0.08em]`, small size (`.label` class). **This is the one place uppercase-tracked text is allowed, and only when it sits directly beside a real value** (a stat number, a region/dateline, a client/industry tag). It must never stand alone above a headline as a kicker — that usage was audited out of every page (see Anti-patterns).
 
-Type scale (clamp, mobile → desktop):
-- Display XL (hero H1): `clamp(2.75rem, 5vw + 1rem, 5.25rem)`, leading 1.02, tracking `-0.03em`
-- Display L (section H2): `clamp(2rem, 2.5vw + 1rem, 3.25rem)`, leading 1.05, tracking `-0.025em`
-- Body L (lede paragraphs): `clamp(1.125rem, 0.5vw + 1rem, 1.375rem)`, leading 1.5
-- Body (default): `1rem`, leading 1.6, max-width `65ch`
-- Label (mono): `0.8125rem`, leading 1.4, tracking `0.08em`, uppercase
+Type scale — named tokens defined once in `app/globals.css`'s `@theme inline` block (Tailwind v4's paired `--text-*` / `--text-*--line-height` / `--text-*--letter-spacing` keys), so a component uses one class (e.g. `text-display-l`) instead of retyping a `clamp()` + `leading-[...]` + `tracking-[...]` triplet. This is what stops the scale from drifting per-component:
+
+- `text-display-xl` — `clamp(2.75rem, 5vw + 1rem, 5.25rem)`, leading 1.02, tracking `-0.02em`. Home hero H1 only.
+- `text-display-m` — `clamp(2.5rem, 4vw + 1rem, 4.25rem)`, leading 1.04, tracking `-0.02em`. Every sub-page's H1 (via `<PageHero>`).
+- `text-display-l` — `clamp(2rem, 2.5vw + 1rem, 3.25rem)`, leading 1.05, tracking `-0.02em`. Section H2s (bento intro, destinations/case-studies preview headings, CTA band).
+- `text-display-s` — `clamp(1.75rem, 2vw + 1rem, 2.75rem)`, leading 1.15, tracking `-0.015em`. In-content headings within a two-column layout (about-page sub-sections, destination/case-study names, pillar-page "where X run best").
+- `text-body-l` — `clamp(1.125rem, 0.5vw + 1rem, 1.375rem)`, leading 1.5. Lede paragraphs under a `<PageHero>`.
+- Body (default): `1rem` minimum for any genuine reading paragraph (never smaller, even in a compact card), leading 1.6, max-width constrained (`max-w-md`/`max-w-lg`/`max-w-xl` — every body paragraph gets one, no exceptions).
+- Label (mono): `0.8125rem`, leading 1.4, tracking `0.08em`, uppercase.
+
+Light-on-dark compensation: any body/lede copy sitting on `--ink` gets the `.on-ink-copy` utility (line-height 1.7, letter-spacing `0.012em`) instead of the plain `leading-relaxed` used on paper backgrounds — light type reads as lighter weight and needs the extra room.
+
+`tabular-nums` on every isolated stat/number callout (hero stats, destination/case-study/venue stat blocks, process step numerals) so aligned figures don't visually wobble.
 
 ## Layout
 
@@ -79,11 +86,13 @@ Never used purely decoratively past these three placements — if a fourth use d
 ## Components (conventions)
 
 - **Buttons:** primary = brass fill, ink text, on ink backgrounds; on paper backgrounds primary = ink fill, paper text, with a brass 2px focus/hover underline detail. Secondary = text link with animated underline. No ghost-card double-decoration (no 1px border + soft wide shadow stacked together).
-- **Nav:** fixed, transparent over the hero, gains `--ink` background + `--line-on-ink` bottom border after scrolling past the hero. Mobile: full-height edge panel, slide-in from the right.
+- **Nav:** fixed, transparent over the hero, gains `--ink` background + `--line-on-ink` bottom border after scrolling past the hero. Mobile: full-height edge panel, slide-in from the right, with a click-outside backdrop and Escape-key dismiss (not just the X button).
 - **Cards (case studies, destination tiles):** `rounded-2xl` (not 32px+), a single 1px `--line` border OR a tinted shadow — never both.
 - **Forms (Request a Proposal):** label above input, helper text present, error inline below field, `gap-2` per field block, visible focus ring in `--brass` at 2px offset.
 - **Icons:** Phosphor icons (`@phosphor-icons/react`), `weight="light"` or `"regular"` throughout — no emoji, ever.
 
 ## Anti-patterns ruled out for this project
 
-Gradient text, side-stripe card borders, tiny tracked eyebrows above every section, numbered 01/02/03 scaffolding outside the one genuine sequence (if any timeline appears), identical 3-up card grids, glassmorphism as default, sketchy/hand-drawn SVG illustration, decorative dot-grid backgrounds, cream/sand default background, pure black (`#000`), Inter as the UI face, Playfair Display (too common in this exact "premium travel" brief to read as a choice).
+Gradient text, side-stripe card borders, ghost-card border+shadow combos (pick one, never both — audited off the case-study cards specifically), numbered 01/02/03 scaffolding outside the one genuine sequence (the About page's 4-step process, which is a real ordered workflow), identical 3-up card grids, glassmorphism as default, sketchy/hand-drawn SVG illustration, decorative dot-grid backgrounds, cream/sand default background, pure black (`#000`), Inter as the UI face, Fraunces/Playfair Display/other reflex-reject serifs.
+
+**Tiny tracked eyebrows above every section** — this project shipped this exact anti-pattern for a while (the `<PageHero>` component's `eyebrow` prop, instantiated on 7 pages, plus standalone kicker lines in the CTA band and two About-page sub-sections: 11+ instances total) before a `typeset` pass caught it. It's since been removed everywhere except the home hero's "Meetings · Incentives · Conferences · Exhibitions" line, which is the one deliberate, named exception: it states the real 4-item taxonomy once, site-wide, not a per-section decoration. If a future edit is tempted to add a mono label above a new heading purely for rhythm, don't — that's exactly how this drifted back in last time.

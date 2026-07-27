@@ -39,7 +39,7 @@ export default async function PillarPage({
 
   return (
     <>
-      <PageHero eyebrow={`Services / ${pillar.name}`} title={pillar.hero} lede={pillar.short} />
+      <PageHero title={pillar.hero} lede={pillar.short} />
 
       <section className="bg-paper py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
@@ -60,7 +60,7 @@ export default async function PillarPage({
             <div>
               <Reveal>
                 <div className="inline-flex items-center gap-3 rounded-xl border border-line px-5 py-4">
-                  <span className="font-mono text-2xl text-text-on-paper">
+                  <span className="font-mono tabular-nums text-2xl text-text-on-paper">
                     {pillar.stat.value}
                   </span>
                   <span className="label text-text-muted">{pillar.stat.label}</span>
@@ -99,7 +99,7 @@ export default async function PillarPage({
       <section className="bg-paper-2 py-20 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <Reveal className="max-w-xl">
-            <h2 className="font-display balance text-[clamp(1.75rem,2vw+1rem,2.5rem)] leading-tight tracking-[-0.02em] text-text-on-paper">
+            <h2 className="font-display balance text-display-s text-text-on-paper">
               Where {pillar.name.toLowerCase()} run best
             </h2>
           </Reveal>
@@ -121,7 +121,7 @@ export default async function PillarPage({
                   </div>
                   <div className="p-5">
                     <p className="label text-text-muted">{d.region}</p>
-                    <h3 className="font-display mt-1 text-lg text-text-on-paper">{d.name}</h3>
+                    <h3 className="font-display mt-1 text-xl text-text-on-paper">{d.name}</h3>
                   </div>
                 </Link>
               </Reveal>

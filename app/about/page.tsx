@@ -39,7 +39,6 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About Confluence"
         title="We book the destination, not just the dates."
         lede="Most MICE gateways sell square footage. We start from the belief that a destination people are reluctant to visit will always feel like a chore to run an event in — no matter how good the AV is."
       />
@@ -61,17 +60,16 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={60}>
               <div className="flex flex-col justify-center">
-                <p className="label text-text-muted">Why we exist</p>
-                <h2 className="font-display balance mt-3 text-[clamp(1.75rem,2vw+1rem,2.75rem)] leading-tight tracking-[-0.02em] text-text-on-paper">
+                <h2 className="font-display balance text-display-s text-text-on-paper">
                   Founded on a scheduling complaint, not a market study.
                 </h2>
-                <p className="pretty mt-5 leading-relaxed text-text-muted">
+                <p className="pretty mt-5 max-w-lg leading-relaxed text-text-muted">
                   Confluence started from a repeated pattern: planners quietly dreading
                   their own annual conference, because the destination itself had
                   nothing going for it beyond a conference centre with decent Wi-Fi.
                   Attendance suffered. Feedback scores suffered more.
                 </p>
-                <p className="pretty mt-4 leading-relaxed text-text-muted">
+                <p className="pretty mt-4 max-w-lg leading-relaxed text-text-muted">
                   We now work with five destinations and their venue operators
                   directly, on the belief that the desirability of the place is a
                   logistics input, not a nice-to-have — it changes who shows up, and
@@ -87,8 +85,7 @@ export default function AboutPage() {
 
           <div className="mt-20 md:mt-24">
             <Reveal className="max-w-xl">
-              <p className="label text-text-muted">How we work</p>
-              <h2 className="font-display balance mt-3 text-[clamp(1.75rem,2vw+1rem,2.75rem)] leading-tight tracking-[-0.02em] text-text-on-paper">
+              <h2 className="font-display balance text-display-s text-text-on-paper">
                 Four steps, in this order, every time.
               </h2>
             </Reveal>
@@ -97,11 +94,11 @@ export default function AboutPage() {
               {process.map((p, i) => (
                 <Reveal key={p.step} delay={i * 60}>
                   <div className="border-t border-line pt-6">
-                    <p className="font-mono text-sm text-brass-strong">{p.step}</p>
+                    <p className="font-mono tabular-nums text-sm text-brass-strong">{p.step}</p>
                     <h3 className="font-display mt-2 text-xl text-text-on-paper">
                       {p.title}
                     </h3>
-                    <p className="pretty mt-2 text-sm leading-relaxed text-text-muted">
+                    <p className="pretty mt-2 leading-relaxed text-text-muted">
                       {p.body}
                     </p>
                   </div>
@@ -121,7 +118,7 @@ export default function AboutPage() {
             { label: "Repeat client rate", value: "68%" },
           ].map((stat) => (
             <Reveal key={stat.label}>
-              <p className="font-mono text-3xl text-text-on-ink">{stat.value}</p>
+              <p className="font-mono tabular-nums text-3xl text-text-on-ink">{stat.value}</p>
               <p className="label mt-2 text-text-on-ink-muted">{stat.label}</p>
             </Reveal>
           ))}
@@ -131,8 +128,8 @@ export default function AboutPage() {
       <section className="bg-paper py-20 md:py-24 text-center">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <Reveal>
-            <h2 className="font-display balance mx-auto max-w-lg text-[clamp(1.75rem,2.5vw+1rem,2.75rem)] leading-tight tracking-[-0.02em] text-text-on-paper">
-              Bring us a brief. We'll bring back a shortlist.
+            <h2 className="font-display balance mx-auto max-w-lg text-display-s text-text-on-paper">
+              Bring us a brief. We&rsquo;ll bring back a shortlist.
             </h2>
           </Reveal>
           <Reveal delay={80}>

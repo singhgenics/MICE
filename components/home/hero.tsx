@@ -28,13 +28,13 @@ export function Hero() {
           </motion.p>
           <motion.h1
             {...fadeUp(0.08)}
-            className="font-display balance mt-5 text-[clamp(2.75rem,5vw+1rem,5.25rem)] leading-[1.02] tracking-[-0.03em] text-text-on-ink"
+            className="font-display balance mt-5 text-display-xl text-text-on-ink"
           >
             Business trips people actually want to take.
           </motion.h1>
           <motion.p
             {...fadeUp(0.18)}
-            className="pretty mt-6 max-w-md text-lg leading-relaxed text-text-on-ink-muted"
+            className="on-ink-copy pretty mt-6 max-w-md text-lg text-text-on-ink-muted"
           >
             Confluence connects meeting planners with the destinations, venues, and
             delivery partners built for events at any scale — from a 40-person
@@ -58,6 +58,9 @@ export function Hero() {
               </span>
             </Link>
           </motion.div>
+          <motion.p {...fadeUp(0.34)} className="mt-3 text-sm text-text-on-ink-muted">
+            Five minutes gets you a shortlist and a named contact — not a brochure.
+          </motion.p>
 
           <motion.dl
             {...fadeUp(0.4)}
@@ -65,15 +68,15 @@ export function Hero() {
           >
             <div>
               <dt className="label text-text-on-ink-muted">Destinations</dt>
-              <dd className="font-mono mt-1 text-2xl text-text-on-ink">12</dd>
+              <dd className="font-mono tabular-nums mt-1 text-2xl text-text-on-ink">12</dd>
             </div>
             <div>
               <dt className="label text-text-on-ink-muted">Delegates hosted</dt>
-              <dd className="font-mono mt-1 text-2xl text-text-on-ink">1.4M</dd>
+              <dd className="font-mono tabular-nums mt-1 text-2xl text-text-on-ink">1.4M</dd>
             </div>
             <div>
               <dt className="label text-text-on-ink-muted">Largest floor</dt>
-              <dd className="font-mono mt-1 text-2xl text-text-on-ink">184k m²</dd>
+              <dd className="font-mono tabular-nums mt-1 text-2xl text-text-on-ink">184k m²</dd>
             </div>
           </motion.dl>
         </div>
