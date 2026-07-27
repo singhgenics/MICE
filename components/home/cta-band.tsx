@@ -25,7 +25,7 @@ export function CtaBand() {
         <Reveal delay={120}>
           <Link
             href="/contact"
-            className="mt-9 inline-flex items-center gap-2 rounded-full bg-brass px-7 py-3.5 text-sm font-medium text-ink transition-all duration-150 ease-out hover:bg-brass-strong active:scale-[0.97]"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-brass px-7 py-3.5 text-sm font-medium text-ink transition-[background-color,transform] duration-150 ease-out hover:bg-brass-strong active:scale-[0.97]"
           >
             Request a Proposal
             <ArrowRight size={16} weight="bold" />

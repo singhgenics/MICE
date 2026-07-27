@@ -10,8 +10,10 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   const fadeUp = (delay: number) => ({
-    initial: { opacity: 0, y: 16 },
-    animate: { opacity: 1, y: 0 },
+    // transform as a literal string (not the x/y shorthand) so this runs on
+    // the compositor instead of the main thread during page-load hydration.
+    initial: { opacity: 0, transform: "translateY(16px)" },
+    animate: { opacity: 1, transform: "translateY(0px)" },
     transition: {
       duration: reduceMotion ? 0 : 0.7,
       delay: reduceMotion ? 0 : delay,
@@ -43,7 +45,7 @@ export function Hero() {
           <motion.div {...fadeUp(0.28)} className="mt-9 flex flex-wrap items-center gap-6">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-brass px-6 py-3.5 text-sm font-medium text-ink transition-all duration-150 ease-out hover:bg-brass-strong active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-full bg-brass px-6 py-3.5 text-sm font-medium text-ink transition-[background-color,transform] duration-150 ease-out hover:bg-brass-strong active:scale-[0.97]"
             >
               Request a Proposal
               <ArrowRight size={16} weight="bold" />

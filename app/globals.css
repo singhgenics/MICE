@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+/* Touch devices fire :hover on tap with no way to un-hover, so any
+   hover-triggered animation (image zoom, color swap) gets stuck until the
+   user taps elsewhere. Gate hover everywhere behind actual hover support. */
+@custom-variant hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
+/* Tailwind's `group-hover:` compound variant isn't backed by the `hover`
+   variant above (confirmed: overriding `hover` alone left it ungated), so
+   the handful of hover-zoom images get a hand-written, genuinely gated rule
+   instead of fighting Tailwind's internal compound-variant resolution. */
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .group-hover-zoom {
+    transform: scale(1.05);
+  }
+}
+
 :root {
   --ink: oklch(19% 0.025 230);
   --ink-2: oklch(24% 0.025 230);

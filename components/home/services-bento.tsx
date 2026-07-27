@@ -41,7 +41,7 @@ export function ServicesBento() {
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="group-hover-zoom object-cover transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
                 <div className="relative z-10 p-7">

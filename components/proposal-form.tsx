@@ -134,7 +134,7 @@ export function ProposalForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center gap-2 rounded-full bg-brass px-6 py-3.5 text-sm font-medium text-ink transition-all duration-150 ease-out hover:bg-brass-strong active:scale-[0.97] disabled:opacity-60"
+        className="inline-flex items-center gap-2 rounded-full bg-brass px-6 py-3.5 text-sm font-medium text-ink transition-[background-color,transform] duration-150 ease-out hover:bg-brass-strong active:scale-[0.97] disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send brief"}
       </button>

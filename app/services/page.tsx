@@ -36,7 +36,7 @@ export default function ServicesPage() {
                       fill
                       priority={i === 0}
                       sizes="(min-width: 768px) 45vw, 100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="group-hover-zoom object-cover transition-transform duration-700 ease-out"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-7">

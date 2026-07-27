@@ -110,9 +110,12 @@ export function SiteHeader() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            // transform string, not the x shorthand: this can run while a
+            // route change kicks off (tapping a nav link closes the panel),
+            // so it needs to stay off the main thread.
+            initial={{ transform: "translateX(100%)" }}
+            animate={{ transform: "translateX(0%)" }}
+            exit={{ transform: "translateX(100%)" }}
             transition={{ duration: 0.32, ease: [0.32, 0.72, 0, 1] }}
             className="lg:hidden fixed inset-y-0 right-0 w-full max-w-sm bg-ink border-l border-line-on-ink px-8 pt-28 pb-10 flex flex-col justify-between"
           >

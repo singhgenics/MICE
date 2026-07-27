@@ -85,7 +85,7 @@ export default async function PillarPage({
               <Reveal delay={200}>
                 <Link
                   href="/contact"
-                  className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-text-on-ink transition-all duration-150 ease-out hover:bg-ink-2 active:scale-[0.97]"
+                  className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-text-on-ink transition-[background-color,transform] duration-150 ease-out hover:bg-ink-2 active:scale-[0.97]"
                 >
                   Request a {pillar.name.toLowerCase()} proposal
                   <ArrowRight size={16} weight="bold" />
@@ -116,7 +116,7 @@ export default async function PillarPage({
                       alt=""
                       fill
                       sizes="(min-width: 640px) 30vw, 100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="group-hover-zoom object-cover transition-transform duration-700 ease-out"
                     />
                   </div>
                   <div className="p-5">

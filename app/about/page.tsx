@@ -135,7 +135,7 @@ export default function AboutPage() {
           <Reveal delay={80}>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-text-on-ink transition-all duration-150 ease-out hover:bg-ink-2 active:scale-[0.97]"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-text-on-ink transition-[background-color,transform] duration-150 ease-out hover:bg-ink-2 active:scale-[0.97]"
             >
               Request a Proposal
               <ArrowRight size={16} weight="bold" />

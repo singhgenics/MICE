@@ -47,7 +47,7 @@ export function DestinationsPreview() {
                       fill
                       draggable={false}
                       sizes="340px"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="group-hover-zoom object-cover transition-transform duration-700 ease-out"
                     />
                   </div>
                   <div className="p-6">
