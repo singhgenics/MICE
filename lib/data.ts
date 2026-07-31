@@ -1,196 +1,137 @@
-export type Destination = {
-  slug: string;
-  name: string;
+export type Track = {
+  slug: "northeast-india" | "southeast-asia";
   region: string;
+  program: string;
+  hero: string;
   tagline: string;
   description: string;
   imageSeed: string;
-  stats: { label: string; value: string }[];
+  cities: string[];
+  stat: { label: string; value: string };
+  experiences: { title: string; body: string }[];
+  advantage: string;
 };
 
-export const destinations: Destination[] = [
+export const tracks: Track[] = [
   {
-    slug: "meridian-bay",
-    name: "Meridian Bay",
-    region: "Coastal financial hub",
-    tagline: "A working harbor that never stopped being one.",
+    slug: "northeast-india",
+    region: "Northeast India",
+    program: "The Digital Detox and Deep Work Retreat",
+    hero: "For the team that needs to switch off before it can think straight.",
+    tagline: "Hushpitality, not another ballroom.",
     description:
-      "Glass towers step down to a working marina, so a plenary session and a sunset dhow crossing sit twenty minutes apart. The financial district's density means walkable venues; the waterfront means the incentive trip writes itself.",
-    imageSeed: "meridian-bay-skyline",
-    stats: [
-      { label: "Plenary capacity", value: "12,400" },
-      { label: "4-5★ rooms", value: "38,200" },
-      { label: "Direct routes", value: "146" },
-      { label: "Avg. flight time (EU)", value: "6.4h" },
+      "As teams push back against constant digital noise, Northeast India offers what the deck calls hushpitality: secondary, uncrowded destinations built for authentic cultural immersion and uninterrupted focus, not another hotel conference floor.",
+    imageSeed: "northeast-india-hills",
+    cities: ["Darjeeling", "Gangtok", "Kaziranga", "Shillong", "Tawang"],
+    stat: { label: "Booking share, FY25 to 26", value: "40%" },
+    experiences: [
+      {
+        title: "Wilderness navigation challenges",
+        body: "Team exercises in the Khasi Hills of Meghalaya or the tea estates of Assam that require fast decisions and mutual reliance, flattening corporate hierarchy in the process.",
+      },
+      {
+        title: "Mindful performance residencies",
+        body: "Back to back strategy sessions replaced with wellness centred agendas: outdoor immersion, slow dining, and facilitated peer dialogue in remote eco resorts.",
+      },
+      {
+        title: "Purpose driven CSR",
+        body: "Half day community projects, working with local artisans or joining regional conservation efforts, so the retreat leaves a measurable positive impact behind.",
+      },
     ],
+    advantage:
+      "Frontier Tourism manages the complex logistics of these emerging second city destinations, providing exclusive access to pristine environments while holding corporate safety and comfort standards.",
   },
   {
-    slug: "solvane",
-    name: "Solvane",
-    region: "Alpine convention town",
-    tagline: "The offsite that gets an RSVP twice.",
+    slug: "southeast-asia",
+    region: "Southeast Asia",
+    program: "The Hybrid Scale and Innovation Summit",
+    hero: "For the group too big, and too distributed, to fake alignment in a boardroom.",
+    tagline: "The undisputed global MICE powerhouse.",
     description:
-      "A funicular connects the congress hall to a ridge line the delegates will photograph more than the slides. Built for leadership retreats and incentive groups who want the agenda to end by 3pm.",
-    imageSeed: "solvane-alps",
-    stats: [
-      { label: "Plenary capacity", value: "3,100" },
-      { label: "4-5★ rooms", value: "9,700" },
-      { label: "Direct routes", value: "52" },
-      { label: "Avg. flight time (EU)", value: "2.1h" },
+      "When the brief is rewarding top performers or aligning a large, distributed workforce, Southeast Asia remains the undisputed global powerhouse: high tech venue capability blended with leisure and wellness options no other region matches.",
+    imageSeed: "southeast-asia-coast",
+    cities: [
+      "Bangkok",
+      "Phuket",
+      "Krabi",
+      "Bali",
+      "Hanoi",
+      "Ho Chi Minh City",
+      "Da Nang",
+      "Penang",
+      "Georgetown",
+      "Singapore City",
     ],
-  },
-  {
-    slug: "amaris-coast",
-    name: "Amaris Coast",
-    region: "Resort coastline",
-    tagline: "Built for the trip your top performers actually want.",
-    description:
-      "Eleven resort properties share a single beach road, each with private meeting pavilions. The default choice when the brief says incentive first, conference second.",
-    imageSeed: "amaris-coast-resort",
-    stats: [
-      { label: "Plenary capacity", value: "2,600" },
-      { label: "4-5★ rooms", value: "14,900" },
-      { label: "Direct routes", value: "61" },
-      { label: "Avg. flight time (EU)", value: "3.8h" },
+    stat: { label: "Booking share, FY25 to 26", value: "60%" },
+    experiences: [
+      {
+        title: "Hyper personalized itineraries",
+        body: "A choice architecture framework: delegates pick their own afternoon track, from a culinary team synergy challenge in Bangkok to a guided meditation session in Ubud.",
+      },
+      {
+        title: "Guided innovation sprints",
+        body: "Southeast Asia's state of the art MICE facilities host Shark Tank style hackathons: teams get a business problem in the morning and pitch a working prototype by evening.",
+      },
+      {
+        title: "The luxury effect",
+        body: "Premium, high reward incentive travel that pairs flawless logistics with Michelin starred dining, cultural workshops, and beachfront networking.",
+      },
     ],
-  },
-  {
-    slug: "kastellan",
-    name: "Kastellan",
-    region: "Old-world congress city",
-    tagline: "Four centuries of trade fairs, one modern floor plan.",
-    description:
-      "A converted 1890s grain exchange sits inside the new congress campus. Delegates get a city that photographs like a postcard and a exhibition hall built in the last decade.",
-    imageSeed: "kastellan-old-town",
-    stats: [
-      { label: "Plenary capacity", value: "8,900" },
-      { label: "4-5★ rooms", value: "22,300" },
-      { label: "Direct routes", value: "98" },
-      { label: "Avg. flight time (EU)", value: "1.6h" },
-    ],
-  },
-  {
-    slug: "northgate-delta",
-    name: "Northgate Delta",
-    region: "Waterfront innovation district",
-    tagline: "The destination for the launch that needs a show floor.",
-    description:
-      "Built on reclaimed delta land specifically as an exhibition district: column-free halls, dedicated freight tunnels, and a skyline that reads as 'built for exactly this.'",
-    imageSeed: "northgate-delta-waterfront",
-    stats: [
-      { label: "Plenary capacity", value: "22,000" },
-      { label: "Exhibition floor", value: "184,000 m²" },
-      { label: "Direct routes", value: "132" },
-      { label: "Avg. flight time (EU)", value: "5.2h" },
-    ],
+    advantage:
+      "Frontier Tourism navigates Tier 1 hub complexity: securing competitive group rates, managing hybrid AV setups, and reporting carbon for large scale flights and venues.",
   },
 ];
 
-export type Pillar = {
-  slug: string;
-  name: string;
-  short: string;
-  hero: string;
-  imageSeed: string;
-  stat: { label: string; value: string };
-  points: { title: string; body: string }[];
+export const bookingShare: { destination: string; share: number }[] = [
+  { destination: "North East India", share: 40 },
+  { destination: "Thailand", share: 35 },
+  { destination: "Vietnam", share: 15 },
+  { destination: "Malaysia", share: 10 },
+];
+
+export type MatrixQuadrant = {
+  objective: string;
+  focus: string;
+  track: "northeast-india" | "southeast-asia";
+  trackLabel: string;
+  cities: string;
 };
 
-export const pillars: Pillar[] = [
+export const impactMatrix: MatrixQuadrant[] = [
   {
-    slug: "meetings",
-    name: "Meetings",
-    short: "Boardrooms, leadership offsites, and mid-size gatherings run without friction.",
-    hero: "For the meeting that decides something.",
-    imageSeed: "confluence-meetings-boardroom",
-    stat: { label: "Avg. setup time", value: "36h" },
-    points: [
-      {
-        title: "One point of contact, start to close",
-        body: "A single delivery lead owns your meeting from site visit to teardown — not a rotating desk of regional contacts.",
-      },
-      {
-        title: "Rooms built for decisions, not just seating",
-        body: "Boardroom, cabaret, and U-shape configurations with sightlines checked in person before you arrive, not on a floor plan PDF.",
-      },
-      {
-        title: "48-hour hold, no penalty",
-        body: "Provisional space holds for finalists are free for 48 hours past your internal decision date.",
-      },
-    ],
+    objective: "Alignment and Vision",
+    focus: "Big goals and the company roadmap",
+    track: "northeast-india",
+    trackLabel: "Northeast India, deep focus",
+    cities: "Meghalaya, Assam, Darjeeling",
   },
   {
-    slug: "incentives",
-    name: "Incentives",
-    short: "Reward trips your top performers request to attend again next year.",
-    hero: "The trip they'd choose with their own money.",
-    imageSeed: "confluence-incentives-coast",
-    stat: { label: "Repeat-attendance rate", value: "71%" },
-    points: [
-      {
-        title: "Built around the destination, not a hotel ballroom",
-        body: "Excursions, dining, and free time are planned first; the one required session is scheduled around them, not the reverse.",
-      },
-      {
-        title: "Tiered for the whole delegation",
-        body: "Top-tier and qualifying-tier itineraries run in parallel without either group feeling like the B-list.",
-      },
-      {
-        title: "Measured against attendance, not attendance targets",
-        body: "We report next-year opt-in rate alongside spend — the number that tells you if it worked.",
-      },
-    ],
+    objective: "Skill and Innovation",
+    focus: "Creative problem solving and training",
+    track: "southeast-asia",
+    trackLabel: "Southeast Asia, tech enabled",
+    cities: "Thailand, Malaysia, Singapore",
   },
   {
-    slug: "conferences",
-    name: "Conferences",
-    short: "Multi-day congresses and summits at a scale your internal team can't staff alone.",
-    hero: "Built to run at 8,000 delegates, or 800.",
-    imageSeed: "confluence-conference-plenary",
-    stat: { label: "Largest delivered", value: "22,000 delegates" },
-    points: [
-      {
-        title: "Registration and badge logistics owned end to end",
-        body: "One system handles registration, badge printing, and access control across every hall — no delegate re-queues at track two.",
-      },
-      {
-        title: "Breakout capacity that scales with the plenary",
-        body: "Every partner venue publishes real concurrent breakout counts, not a theoretical maximum that assumes empty corridors.",
-      },
-      {
-        title: "A named crisis lead on-site for the full run",
-        body: "Weather, speaker cancellations, AV failure — one person with the authority to make the call, on-site for every session day.",
-      },
-    ],
+    objective: "Connection and Trust",
+    focus: "Psychological safety and relationships",
+    track: "northeast-india",
+    trackLabel: "Northeast India, adventure and detox",
+    cities: "Arunachal Pradesh, North Sikkim",
   },
   {
-    slug: "exhibitions",
-    name: "Exhibitions",
-    short: "Column-free exhibition floors, freight logistics, and show-floor delivery at scale.",
-    hero: "The floor plan comes before the invite list.",
-    imageSeed: "confluence-exhibition-hall",
-    stat: { label: "Largest floor", value: "184,000 m²" },
-    points: [
-      {
-        title: "Freight tunnels, not shared loading docks",
-        body: "Dedicated freight access means move-in for a 400-booth floor doesn't compete with catering deliveries.",
-      },
-      {
-        title: "Exhibitor logistics handled as one contract",
-        body: "Stand builders, electrical, rigging, and customs clearance for international exhibitors sit under a single delivery agreement.",
-      },
-      {
-        title: "Sightline-tested column-free spans",
-        body: "Every hall we recommend has a published clear-span number — no surprise support column in booth 214.",
-      },
-    ],
+    objective: "Restoration and Wellness",
+    focus: "Stopping burnout, building long term health",
+    track: "southeast-asia",
+    trackLabel: "Southeast Asia, luxury and spa",
+    cities: "Bali, Vietnam, Thailand",
   },
 ];
 
 export type CaseStudy = {
   slug: string;
   client: string;
-  industry: string;
+  track: "northeast-india" | "southeast-asia";
   destination: string;
   headline: string;
   summary: string;
@@ -200,109 +141,165 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "vasterlund-group",
-    client: "Vasterlund Group",
-    industry: "Industrial manufacturing",
-    destination: "Solvane",
-    headline: "A 340-person leadership summit that moved a stalled reorg forward.",
+    slug: "osk-group",
+    client: "OSK Group of Companies Pvt. Ltd.",
+    track: "southeast-asia",
+    destination: "Bangkok and Pattaya, Thailand",
+    headline: "FY25 to 26's first M.I.C.E tour: 4 nights, 5 days, one delivery team.",
     summary:
-      "Vasterlund's executive committee had cancelled its annual summit twice. Moving it to Solvane's ridge-line lodge, with sessions capped at three hours a day, restored attendance to full C-suite turnout.",
+      "Accommodation, meals, conference, a farewell dinner, sightseeing, and every transfer across Bangkok and Pattaya handled under one contract. OSK Group's recommendation directly led to Frontier Tourism's next Southeast Asia mandate.",
     stats: [
-      { label: "Delegates", value: "340" },
-      { label: "Session days", value: "3" },
-      { label: "Exec attendance vs. prior year", value: "+58%" },
+      { label: "Trip length", value: "4N / 5D" },
+      { label: "Cities", value: "2" },
+      { label: "Referral generated", value: "1 repeat client" },
     ],
-    imageSeed: "vasterlund-summit",
+    imageSeed: "osk-group-bangkok",
   },
   {
-    slug: "corvid-and-marsh",
-    client: "Corvid & Marsh",
-    industry: "Professional services",
-    destination: "Amaris Coast",
-    headline: "An incentive trip that lifted next-quarter qualification rate.",
+    slug: "gajraj-and-sons",
+    client: "Gajraj & Sons Pvt. Ltd.",
+    track: "southeast-asia",
+    destination: "Vietnam",
+    headline: "35 patrons from Gujarat, 6 nights and 7 days, zero handoffs.",
     summary:
-      "Corvid & Marsh's top-decile consultants had flat interest in the annual incentive trip. A redesigned Amaris Coast itinerary, weighted toward free time over programming, raised next-cycle qualification attempts by nearly a third.",
+      "Following the Thailand mandate, Frontier Tourism hosted Gajraj & Sons' second major tour: stays in 4 star hotels and resorts with breakfast and dinner, full sightseeing, and every transfer across the itinerary.",
     stats: [
-      { label: "Qualifying delegates", value: "212" },
-      { label: "Repeat opt-in", value: "74%" },
-      { label: "Next-cycle qualification lift", value: "+31%" },
+      { label: "Delegates", value: "35" },
+      { label: "Trip length", value: "6N / 7D" },
+      { label: "Hotel rating", value: "4 star" },
     ],
-    imageSeed: "corvid-marsh-incentive",
+    imageSeed: "gajraj-vietnam",
   },
   {
-    slug: "halberd-systems",
-    client: "Halberd Systems",
-    industry: "Enterprise technology",
-    destination: "Northgate Delta",
-    headline: "A product launch and 340-booth exhibition floor, delivered in 11 weeks.",
+    slug: "la-favela",
+    client: "La Favela",
+    track: "southeast-asia",
+    destination: "Bangkok, Chiang Mai, and Koh Samui, Thailand",
+    headline: "An Annual Founders Meeting closed with a private yacht party.",
     summary:
-      "Halberd's hardware launch needed a column-free hall, dedicated freight access for international exhibitors, and a live-stream backbone. Northgate Delta's exhibition district met the brief without a single custom build request.",
+      "FY25 to 26 ended with an unplanned opportunity from Mexico: OSK Group's own recommendation brought La Favela to Frontier Tourism for their Annual Founders Meeting, staying in premium resorts with meals, transfers, and sightseeing across three cities, closing with a private yacht party.",
     stats: [
-      { label: "Booths", value: "340" },
-      { label: "Lead time", value: "11 weeks" },
-      { label: "International exhibitors cleared", value: "96%" },
+      { label: "Cities covered", value: "3" },
+      { label: "Resort tier", value: "Premium" },
+      { label: "Sourced via", value: "Client referral" },
     ],
-    imageSeed: "halberd-exhibition",
+    imageSeed: "la-favela-thailand",
+  },
+  {
+    slug: "glaxosmithkline",
+    client: "GlaxoSmithKline, Gujarat Region",
+    track: "northeast-india",
+    destination: "Tawang, Northeast India",
+    headline: "An executive meet in Tawang, Inner Line Permits included.",
+    summary:
+      "Opening FY26 to 27, Frontier Tourism hosted GlaxoSmithKline's Gujarat Region Executive Meet in Tawang: premium hotels and resorts, meals, transfers, sightseeing, and the Inner Line Permits that a restricted border region requires.",
+    stats: [
+      { label: "Destination", value: "Tawang" },
+      { label: "Permits handled", value: "Inner Line" },
+      { label: "Hotel tier", value: "Premium" },
+    ],
+    imageSeed: "gsk-tawang",
   },
 ];
 
-export type Venue = {
-  slug: string;
+export type Testimonial = {
+  quote: string;
   name: string;
-  destination: string;
-  type: string;
-  capacity: string;
-  imageSeed: string;
-  description: string;
 };
 
-export const venues: Venue[] = [
+export const testimonials: Testimonial[] = [
   {
-    slug: "the-marsh-exchange",
-    name: "The Marsh Exchange",
-    destination: "Meridian Bay",
-    type: "Convention centre",
-    capacity: "12,400 plenary · 38 breakouts",
-    imageSeed: "marsh-exchange-hall",
-    description:
-      "A harbor-front convention centre with a retractable plenary wall that opens directly onto the marina for receptions.",
+    quote:
+      "Great experience with their services, worth the price, and also thank you for providing a very comfortable stay. Loved Vietnam with Frontier Tourism.",
+    name: "Chung Jung Sherpa",
   },
   {
-    slug: "ridgeline-lodge",
-    name: "Ridgeline Lodge & Congress Hall",
-    destination: "Solvane",
-    type: "Lodge & congress hall",
-    capacity: "3,100 plenary · 14 breakouts",
-    imageSeed: "ridgeline-lodge",
-    description:
-      "Funicular-linked lodge and congress hall built into the ridge, with breakout rooms facing the valley rather than a corridor.",
+    quote:
+      "Perfectly planned tailor made itineraries with great service and delicious food. Bali is the best they provide services in. 5 star.",
+    name: "Deepak Kashyap",
   },
   {
-    slug: "old-exchange-hall",
-    name: "The Old Exchange Hall",
-    destination: "Kastellan",
-    type: "Heritage congress campus",
-    capacity: "8,900 plenary · 41 breakouts",
-    imageSeed: "old-exchange-hall",
-    description:
-      "An 1890s grain exchange restored as the entrance hall to Kastellan's modern congress campus — heritage facade, current-decade AV.",
-  },
-  {
-    slug: "delta-exposition-park",
-    name: "Delta Exposition Park",
-    destination: "Northgate Delta",
-    type: "Exhibition district",
-    capacity: "184,000 m² · 22,000 plenary",
-    imageSeed: "delta-exposition-park",
-    description:
-      "Six column-free halls on reclaimed delta land, each with independent freight tunnels for simultaneous exhibitor move-in.",
+    quote:
+      "Bhutan trip was amazing, we experienced amazing service since arrival. The local guides and drivers are also very cooperative.",
+    name: "Bhruban Ganguly",
   },
 ];
+
+export type WorkflowEntry = {
+  year: string;
+  date: string;
+  body: string;
+};
+
+export const workflow: WorkflowEntry[] = [
+  {
+    year: "2020",
+    date: "20 October 2020",
+    body: "Our first group tour in Himachal Pradesh after the COVID 19 pandemic, with 20 adults.",
+  },
+  {
+    year: "2022",
+    date: "20 May 2022",
+    body: "Our 50th group trip: 50 adults in the Northeast Indian state of Meghalaya.",
+  },
+  {
+    year: "2023",
+    date: "18 October 2023",
+    body: "Our first M.I.C.E tour in Vietnam, 4 nights and 5 days, for Samraj Constructions Pvt. Ltd. Our 100th trip concluded.",
+  },
+  {
+    year: "2024",
+    date: "10 September 2024",
+    body: "Two M.I.C.E tours to Bali and Vietnam, 5 nights and 6 days each, 30 adults, for Ready City Infra Pvt. Ltd. and Gajraj & Sons Pvt. Ltd.",
+  },
+  {
+    year: "2025",
+    date: "14 September 2025",
+    body: "Two consecutive M.I.C.E tours in Thailand, for OSK Group and La Favela.",
+  },
+  {
+    year: "2026",
+    date: "19 February 2026",
+    body: "Received the award for Best Presentation in the Inbound Category, at an event in Penang, Malaysia.",
+  },
+];
+
+export const whatWeOffer = [
+  {
+    title: "Single point of accountability",
+    body: "From initial venue sourcing, the biggest hurdle for 51% of companies according to industry surveys, through on the ground crisis management and post event ROI reporting.",
+  },
+  {
+    title: "ESG compliance built in",
+    body: "A fixed carbon budget per event, a preference for eco certified DMCs and high speed rail where it applies, and venues that publish transparent sustainability reporting.",
+  },
+  {
+    title: "Local insight, global standards",
+    body: "The gap between authentic, off the beaten path experience and the rigorous logistical demands of modern corporate travel, bridged by one team.",
+  },
+];
+
+export const guarantees = [
+  "Luxurious and comfortable accommodations",
+  "Meals as per choice",
+  "Welcome breakfast and farewell dinner",
+  "Private and hassle free transfers",
+  "Seamless events and functions",
+  "Authentic experiences",
+  "Guided services throughout",
+];
+
+export const contact = {
+  phone: "+91 76028 80330",
+  phoneHref: "+917602880330",
+  emailPrimary: "admin@thetravellerco.in",
+  emailSecondary: "frontiertourism.ttc@gmail.com",
+  website: "www.thetravellerco.in",
+};
 
 export const navItems = [
   { label: "Destinations", href: "/destinations" },
-  { label: "Services", href: "/services" },
-  { label: "Venues", href: "/venues" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Programs", href: "/programs" },
+  { label: "Our Work", href: "/case-studies" },
   { label: "About", href: "/about" },
 ];

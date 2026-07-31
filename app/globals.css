@@ -22,20 +22,20 @@
 }
 
 :root {
-  --ink: oklch(19% 0.025 230);
-  --ink-2: oklch(24% 0.025 230);
-  --ink-3: oklch(29% 0.025 230);
-  --paper: oklch(97% 0.006 230);
-  --paper-2: oklch(94% 0.008 230);
-  --brass: oklch(72% 0.13 70);
-  --brass-strong: oklch(64% 0.14 68);
-  --brass-soft: oklch(85% 0.08 72);
-  --text-on-paper: oklch(22% 0.02 230);
-  --text-muted: oklch(42% 0.02 230);
-  --text-on-ink: oklch(96% 0.005 230);
-  --text-on-ink-muted: oklch(72% 0.015 230);
-  --line: oklch(88% 0.01 230);
-  --line-on-ink: oklch(32% 0.02 230);
+  --ink: oklch(22% 0.035 155);
+  --ink-2: oklch(27% 0.035 155);
+  --ink-3: oklch(32% 0.035 155);
+  --paper: oklch(96% 0.008 155);
+  --paper-2: oklch(93% 0.01 155);
+  --terracotta: oklch(62% 0.15 45);
+  --terracotta-strong: oklch(54% 0.16 43);
+  --terracotta-soft: oklch(80% 0.09 46);
+  --text-on-paper: oklch(20% 0.02 155);
+  --text-muted: oklch(40% 0.02 155);
+  --text-on-ink: oklch(96% 0.01 155);
+  --text-on-ink-muted: oklch(74% 0.02 155);
+  --line: oklch(87% 0.012 155);
+  --line-on-ink: oklch(33% 0.03 155);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -47,9 +47,9 @@
   --color-ink-3: var(--ink-3);
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
-  --color-brass: var(--brass);
-  --color-brass-strong: var(--brass-strong);
-  --color-brass-soft: var(--brass-soft);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-strong: var(--terracotta-strong);
+  --color-terracotta-soft: var(--terracotta-soft);
   --color-text-on-paper: var(--text-on-paper);
   --color-text-muted: var(--text-muted);
   --color-text-on-ink: var(--text-on-ink);
@@ -61,7 +61,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Type scale — named tokens so headline sizing can't drift per-component.
+  /* Type scale, named tokens so headline sizing can't drift per-component.
      Each carries its own line-height/letter-spacing via Tailwind v4's
      paired --text-*--line-height / --text-*--letter-spacing keys, so one
      class (e.g. text-display-xl) replaces a hand-typed clamp()+leading+tracking triplet. */
@@ -96,12 +96,12 @@ body {
 }
 
 ::selection {
-  background: var(--brass);
+  background: var(--terracotta);
   color: var(--ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--brass);
+  outline: 2px solid var(--terracotta);
   outline-offset: 2px;
   border-radius: 2px;
 }

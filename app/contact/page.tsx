@@ -1,30 +1,31 @@
 import type { Metadata } from "next";
-import { EnvelopeSimple, Clock, MapPinLine } from "@phosphor-icons/react/dist/ssr";
+import { Clock, EnvelopeSimple, Phone } from "@phosphor-icons/react/dist/ssr";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { ProposalForm } from "@/components/proposal-form";
+import { contact } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Request a Proposal",
   description:
-    "Send a short event brief and get a shortlist of two or three matched destinations back within one business day.",
+    "Send your headcount, budget band, and objective. Frontier Tourism delivers a structural blueprint within 48 hours.",
 };
 
 const details = [
   {
     icon: Clock,
     title: "Response time",
-    body: "One business day for a shortlist. Same day for anything with a deadline flagged in the brief.",
+    body: "A structural blueprint within 48 hours of your brief. Sooner for anything with a flagged deadline.",
   },
   {
     icon: EnvelopeSimple,
-    title: "Direct line",
-    body: "proposals@confluence-mice.example — for planners who'd rather email a brief than fill out a form.",
+    title: "Email",
+    body: `${contact.emailPrimary}, or ${contact.emailSecondary} for the MICE team directly.`,
   },
   {
-    icon: MapPinLine,
-    title: "Coverage",
-    body: "Five destinations across three regions, each with a resident delivery team — not a fly-in account manager.",
+    icon: Phone,
+    title: "Phone",
+    body: `${contact.phone}. Ask for the Frontier Tourism desk, not general leisure bookings.`,
   },
 ];
 
@@ -32,8 +33,8 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        title="Five minutes here gets you a shortlist, not a brochure."
-        lede="Send the brief below. A delivery lead — not a chatbot, not a rotating inbox — replies with two or three matched destinations and a named contact."
+        title="Send a headcount and an objective. Get a blueprint back."
+        lede="Fill in the brief below, or reach the MICE desk directly by phone or email. Either way, a named delivery lead responds, not a shared inbox."
       />
 
       <section className="bg-paper py-20 md:py-28">
@@ -47,7 +48,7 @@ export default function ContactPage() {
                 {details.map((d, i) => (
                   <Reveal key={d.title} delay={i * 60}>
                     <div className="flex gap-4">
-                      <d.icon size={22} weight="light" className="mt-0.5 shrink-0 text-brass-strong" />
+                      <d.icon size={22} weight="light" className="mt-0.5 shrink-0 text-terracotta-strong" />
                       <div>
                         <h3 className="font-display text-xl text-text-on-paper">{d.title}</h3>
                         <p className="pretty mt-1 text-sm leading-relaxed text-text-muted">

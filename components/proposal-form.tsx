@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { CheckCircle, WarningCircle } from "@phosphor-icons/react";
-import { pillars, destinations } from "@/lib/data";
+import { tracks } from "@/lib/data";
 
 type Errors = Partial<Record<"name" | "email" | "company" | "eventType" | "brief", string>>;
 
@@ -24,7 +24,7 @@ export function ProposalForm() {
     if (!email) nextErrors.email = "Enter a work email.";
     else if (!/^\S+@\S+\.\S+$/.test(email)) nextErrors.email = "That email address doesn't look complete.";
     if (!company) nextErrors.company = "Enter your company name.";
-    if (!eventType) nextErrors.eventType = "Choose the event type closest to your brief.";
+    if (!eventType) nextErrors.eventType = "Choose the track closest to your brief.";
     if (!brief) nextErrors.brief = "Add a line or two about the event.";
 
     setErrors(nextErrors);
@@ -37,13 +37,13 @@ export function ProposalForm() {
   if (status === "submitted") {
     return (
       <div className="rounded-2xl border border-line bg-paper p-8">
-        <CheckCircle size={32} weight="light" className="text-brass-strong" />
+        <CheckCircle size={32} weight="light" className="text-terracotta-strong" />
         <h2 className="font-display mt-4 text-2xl text-text-on-paper">
           Brief received.
         </h2>
         <p className="pretty mt-3 max-w-sm leading-relaxed text-text-muted">
-          A delivery lead will reply within one business day with a shortlist of two
-          or three destinations matched to what you sent — not a generic brochure.
+          A delivery lead will reply within 48 hours with a structural blueprint
+          matched to what you sent, not a generic brochure.
         </p>
       </div>
     );
@@ -85,13 +85,13 @@ export function ProposalForm() {
             className={inputClass(Boolean(errors.company))}
           />
         </Field>
-        <Field label="Approximate delegate count" name="delegates" helper="Optional — a range is fine.">
-          <input id="delegates" name="delegates" type="text" placeholder="e.g. 200–350" className={inputClass(false)} />
+        <Field label="Approximate headcount" name="delegates" helper="Optional, a range is fine.">
+          <input id="delegates" name="delegates" type="text" placeholder="for example, 200 to 350" className={inputClass(false)} />
         </Field>
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <Field label="Event type" name="eventType" error={errors.eventType}>
+        <Field label="Which track fits" name="eventType" error={errors.eventType}>
           <select
             id="eventType"
             name="eventType"
@@ -102,26 +102,30 @@ export function ProposalForm() {
             <option value="" disabled>
               Choose one
             </option>
-            {pillars.map((p) => (
-              <option key={p.slug} value={p.name}>
-                {p.name}
+            {tracks.map((t) => (
+              <option key={t.slug} value={t.region}>
+                {t.region}, {t.program}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Destination preference" name="destination" helper="Optional — leave blank if you want our recommendation.">
+        <Field label="City preference" name="destination" helper="Optional, leave blank for our recommendation.">
           <select id="destination" name="destination" defaultValue="" className={inputClass(false)}>
             <option value="">No preference yet</option>
-            {destinations.map((d) => (
-              <option key={d.slug} value={d.name}>
-                {d.name}
-              </option>
+            {tracks.map((t) => (
+              <optgroup key={t.slug} label={t.region}>
+                {t.cities.map((city) => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </optgroup>
             ))}
           </select>
         </Field>
       </div>
 
-      <Field label="Tell us about the event" name="brief" error={errors.brief} helper="Dates, budget band, and the one thing that matters most.">
+      <Field label="Tell us about the event" name="brief" error={errors.brief} helper="Dates, budget band, and the primary objective.">
         <textarea
           id="brief"
           name="brief"
@@ -134,7 +138,7 @@ export function ProposalForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center gap-2 rounded-full bg-brass px-6 py-3.5 text-sm font-medium text-ink transition-[background-color,transform] duration-150 ease-out hover:bg-brass-strong active:scale-[0.97] disabled:opacity-60"
+        className="inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3.5 text-sm font-medium text-ink transition-[background-color,transform] duration-150 ease-out hover:bg-terracotta-strong active:scale-[0.97] disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send brief"}
       </button>
@@ -145,7 +149,7 @@ export function ProposalForm() {
 function inputClass(hasError: boolean) {
   return [
     "w-full rounded-lg border bg-paper px-4 py-3 text-base text-text-on-paper transition-colors duration-150",
-    "placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brass focus:ring-offset-2 focus:ring-offset-paper",
+    "placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-offset-2 focus:ring-offset-paper",
     hasError ? "border-red-600" : "border-line",
   ].join(" ");
 }

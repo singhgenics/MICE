@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { List, X } from "@phosphor-icons/react";
 import { navItems } from "@/lib/data";
+import { basePath } from "@/lib/base-path";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,11 +54,15 @@ export function SiteHeader() {
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-18 flex items-center justify-between py-4">
-          <Link
-            href="/"
-            className="font-display text-2xl text-text-on-ink tracking-tight"
-          >
-            Confluence
+          <Link href="/" aria-label="Frontier Tourism, home" className="block">
+            <Image
+              src={`${basePath}/brand/logo-white.png`}
+              alt="Frontier Tourism"
+              width={359}
+              height={234}
+              priority
+              className="h-11 w-auto"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -74,7 +80,7 @@ export function SiteHeader() {
           <div className="hidden lg:block">
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-full bg-brass px-5 py-2.5 text-sm font-medium text-ink transition-transform duration-150 ease-out hover:bg-brass-strong active:scale-[0.97]"
+              className="inline-flex items-center rounded-full bg-terracotta px-5 py-2.5 text-sm font-medium text-ink transition-transform duration-150 ease-out hover:bg-terracotta-strong active:scale-[0.97]"
             >
               Request a Proposal
             </Link>
@@ -133,7 +139,7 @@ export function SiteHeader() {
             </nav>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-brass px-5 py-3 text-sm font-medium text-ink"
+              className="inline-flex items-center justify-center rounded-full bg-terracotta px-5 py-3 text-sm font-medium text-ink"
             >
               Request a Proposal
             </Link>

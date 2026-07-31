@@ -13,8 +13,8 @@ export function CaseStudiesStack() {
             Proof, stacked.
           </h2>
           <p className="pretty mt-4 max-w-xl text-lg leading-relaxed text-text-muted">
-            Three companies, three different reasons to book — read them in order and
-            watch the case for this destination build.
+            Four companies, four real trips. Read them in order and watch the
+            record build.
           </p>
         </Reveal>
 
@@ -41,7 +41,7 @@ export function CaseStudiesStack() {
                   </div>
                   <div className="flex flex-col justify-center p-8 md:p-10">
                     <p className="label text-text-muted">
-                      {cs.client} · {cs.industry}
+                      {cs.client} · {cs.destination}
                     </p>
                     <h3 className="font-display balance mt-3 text-2xl leading-tight text-text-on-paper md:text-3xl">
                       {cs.headline}
@@ -57,8 +57,8 @@ export function CaseStudiesStack() {
                         </div>
                       ))}
                     </div>
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brass-strong">
-                      Read the full case study
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-terracotta-strong">
+                      Read the full account
                       <ArrowUpRight
                         size={16}
                         weight="bold"

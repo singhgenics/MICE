@@ -21,11 +21,11 @@ const bitter = Bitter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Confluence — Where the world meets",
-    template: "%s — Confluence",
+    default: "Frontier Tourism, MICE Retreats in Northeast India and Southeast Asia",
+    template: "%s, Frontier Tourism",
   },
   description:
-    "Confluence is a global MICE gateway connecting meeting planners with destinations, venues, and delivery partners built for meetings, incentives, conferences, and exhibitions.",
+    "Frontier Tourism is the dedicated MICE division of The Traveller Co., separate from leisure travel. Two retreat programs, Northeast India and Southeast Asia, built for corporate offsites, incentive trips, and executive meets.",
 };
 
 export default function RootLayout({

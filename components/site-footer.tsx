@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
-import { pillars } from "@/lib/data";
-import { ConvergenceLine } from "@/components/convergence-line";
+import Image from "next/image";
+import { EnvelopeSimple, Phone } from "@phosphor-icons/react/dist/ssr";
+import { tracks, contact } from "@/lib/data";
+import { TrailLine } from "@/components/trail-line";
+import { basePath } from "@/lib/base-path";
 
 const companyLinks = [
   { label: "About", href: "/about" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Venues", href: "/venues" },
+  { label: "Our Work", href: "/case-studies" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -16,31 +17,44 @@ export function SiteFooter() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-20 pb-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <p className="font-display text-3xl tracking-tight text-text-on-ink">Confluence</p>
+            <Image
+              src={`${basePath}/brand/logo-white.png`}
+              alt="Frontier Tourism"
+              width={359}
+              height={234}
+              className="h-12 w-auto"
+            />
             <p className="on-ink-copy mt-4 max-w-sm">
-              A global MICE gateway connecting meeting planners with destinations, venues,
-              and delivery partners built for meetings, incentives, conferences, and
-              exhibitions.
+              The dedicated MICE division of The Traveller Co., run separately from
+              leisure travel. Two retreat programs, Northeast India and Southeast
+              Asia, built for corporate offsites and incentive trips.
             </p>
             <a
-              href="mailto:proposals@confluence-mice.example"
-              className="mt-6 inline-flex items-center gap-2 text-sm text-brass hover:text-brass-strong transition-colors"
+              href={`mailto:${contact.emailPrimary}`}
+              className="mt-6 inline-flex items-center gap-2 text-sm text-terracotta hover:text-terracotta-strong transition-colors"
             >
               <EnvelopeSimple size={16} weight="light" />
-              proposals@confluence-mice.example
+              {contact.emailPrimary}
+            </a>
+            <a
+              href={`tel:${contact.phoneHref}`}
+              className="mt-2 flex items-center gap-2 text-sm text-terracotta hover:text-terracotta-strong transition-colors"
+            >
+              <Phone size={16} weight="light" />
+              {contact.phone}
             </a>
           </div>
 
           <div>
-            <p className="label text-text-on-ink-muted">Services</p>
+            <p className="label text-text-on-ink-muted">Programs</p>
             <ul className="mt-4 space-y-2.5">
-              {pillars.map((p) => (
-                <li key={p.slug}>
+              {tracks.map((t) => (
+                <li key={t.slug}>
                   <Link
-                    href={`/services/${p.slug}`}
+                    href={`/programs/${t.slug}`}
                     className="text-sm hover:text-text-on-ink transition-colors"
                   >
-                    {p.name}
+                    {t.region}
                   </Link>
                 </li>
               ))}
@@ -65,7 +79,7 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5">
               <li>
                 <Link href="/destinations" className="text-sm hover:text-text-on-ink transition-colors">
-                  All destinations
+                  Both tracks
                 </Link>
               </li>
               <li>
@@ -78,12 +92,12 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-16 flex justify-center opacity-70">
-          <ConvergenceLine variant="divider" className="h-8 w-56" />
+          <TrailLine variant="divider" className="h-8 w-56" />
         </div>
 
         <div className="mt-10 border-t border-line-on-ink pt-8 text-center md:text-left">
           <p className="text-xs text-text-on-ink-muted">
-            © {new Date().getFullYear()} Confluence MICE Gateway. All rights reserved.
+            © {new Date().getFullYear()} Frontier Tourism, a division of The Traveller Co. All rights reserved.
           </p>
         </div>
       </div>
