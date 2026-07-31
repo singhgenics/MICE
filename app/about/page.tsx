@@ -6,6 +6,7 @@ import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { TrailLine } from "@/components/trail-line";
 import { whatWeOffer, workflow, guarantees } from "@/lib/data";
+import { basePath } from "@/lib/base-path";
 
 export const metadata: Metadata = {
   title: "About",
@@ -27,7 +28,7 @@ export default function AboutPage() {
             <Reveal>
               <div className="relative h-72 overflow-hidden rounded-2xl lg:h-full lg:min-h-[380px]">
                 <Image
-                  src="https://picsum.photos/seed/frontier-tourism-team/1000/900"
+                  src={`${basePath}/photos/resort-bedroom.jpg`}
                   alt=""
                   fill
                   priority

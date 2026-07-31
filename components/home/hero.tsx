@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { TrailLine } from "@/components/trail-line";
 import { ArrowRight } from "@phosphor-icons/react";
+import { basePath } from "@/lib/base-path";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -88,7 +89,7 @@ export function Hero() {
 
         <div className="relative h-[46vh] lg:h-[74vh] rounded-3xl overflow-hidden">
           <Image
-            src="https://picsum.photos/seed/frontier-tourism-hills-hero/1400/1600"
+            src={`${basePath}/photos/resort-pool.jpg`}
             alt=""
             fill
             priority

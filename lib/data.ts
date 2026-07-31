@@ -1,3 +1,11 @@
+import { basePath } from "@/lib/base-path";
+
+// next/image doesn't auto-prefix local public/ src paths with basePath under
+// static export (confirmed with the site logo, see lib/base-path.ts), so
+// every real photo path defined below applies it once, here, rather than
+// leaving every page/component that reads these fields to remember to.
+const photo = (path: string) => `${basePath}${path}`;
+
 export type Track = {
   slug: "northeast-india" | "southeast-asia";
   region: string;
@@ -5,7 +13,10 @@ export type Track = {
   hero: string;
   tagline: string;
   description: string;
-  imageSeed: string;
+  image: string;
+  imageAlt: string;
+  imageDetail: string;
+  imageDetailAlt: string;
   cities: string[];
   stat: { label: string; value: string };
   experiences: { title: string; body: string }[];
@@ -21,7 +32,10 @@ export const tracks: Track[] = [
     tagline: "Hushpitality, not another ballroom.",
     description:
       "As teams push back against constant digital noise, Northeast India offers what the deck calls hushpitality: secondary, uncrowded destinations built for authentic cultural immersion and uninterrupted focus, not another hotel conference floor.",
-    imageSeed: "northeast-india-hills",
+    image: photo("/photos/northeast-india-waterfall.jpg"),
+    imageAlt: "A waterfall dropping into a turquoise pool in the forests of Meghalaya",
+    imageDetail: photo("/photos/meghalaya-root-bridge.jpg"),
+    imageDetailAlt: "A double-decker living root bridge over a stream in Meghalaya",
     cities: ["Darjeeling", "Gangtok", "Kaziranga", "Shillong", "Tawang"],
     stat: { label: "Booking share, FY25 to 26", value: "40%" },
     experiences: [
@@ -49,7 +63,10 @@ export const tracks: Track[] = [
     tagline: "The undisputed global MICE powerhouse.",
     description:
       "When the brief is rewarding top performers or aligning a large, distributed workforce, Southeast Asia remains the undisputed global powerhouse: high tech venue capability blended with leisure and wellness options no other region matches.",
-    imageSeed: "southeast-asia-coast",
+    image: photo("/photos/bangkok-skyline.jpg"),
+    imageAlt: "The Bangkok skyline rising above Lumphini Park",
+    imageDetail: photo("/photos/tanah-lot-bali.jpg"),
+    imageDetailAlt: "Tanah Lot sea temple on a rock arch off the coast of Bali",
     cities: [
       "Bangkok",
       "Phuket",
@@ -136,7 +153,8 @@ export type CaseStudy = {
   headline: string;
   summary: string;
   stats: { label: string; value: string }[];
-  imageSeed: string;
+  image: string;
+  imageAlt: string;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -153,7 +171,8 @@ export const caseStudies: CaseStudy[] = [
       { label: "Cities", value: "2" },
       { label: "Referral generated", value: "1 repeat client" },
     ],
-    imageSeed: "osk-group-bangkok",
+    image: photo("/photos/osk-group-pattaya.jpg"),
+    imageAlt: "The OSK Group delegation posing in front of the Pattaya City sign",
   },
   {
     slug: "gajraj-and-sons",
@@ -168,7 +187,8 @@ export const caseStudies: CaseStudy[] = [
       { label: "Trip length", value: "6N / 7D" },
       { label: "Hotel rating", value: "4 star" },
     ],
-    imageSeed: "gajraj-vietnam",
+    image: photo("/photos/gajraj-sons-vietnam.jpg"),
+    imageAlt: "The Gajraj & Sons group on a boat trip past limestone karst islands in Vietnam",
   },
   {
     slug: "la-favela",
@@ -183,7 +203,8 @@ export const caseStudies: CaseStudy[] = [
       { label: "Resort tier", value: "Premium" },
       { label: "Sourced via", value: "Client referral" },
     ],
-    imageSeed: "la-favela-thailand",
+    image: photo("/photos/la-favela-bangkok.jpg"),
+    imageAlt: "The La Favela group at the Golden Buddha temple, Wat Traimit, in Bangkok",
   },
   {
     slug: "glaxosmithkline",
@@ -198,7 +219,8 @@ export const caseStudies: CaseStudy[] = [
       { label: "Permits handled", value: "Inner Line" },
       { label: "Hotel tier", value: "Premium" },
     ],
-    imageSeed: "gsk-tawang",
+    image: photo("/photos/gsk-tawang-snow.jpg"),
+    imageAlt: "The GlaxoSmithKline delegation in the snow near Tawang",
   },
 ];
 

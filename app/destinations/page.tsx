@@ -33,8 +33,8 @@ export default function DestinationsPage() {
                 >
                   <div className="relative h-72 overflow-hidden rounded-2xl lg:h-[420px]">
                     <Image
-                      src={`https://picsum.photos/seed/${track.imageSeed}/1000/900`}
-                      alt=""
+                      src={track.image}
+                      alt={track.imageAlt}
                       fill
                       priority={i === 0}
                       sizes="(min-width: 1024px) 45vw, 100vw"

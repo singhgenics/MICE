@@ -5,6 +5,33 @@ import { tracks } from "@/lib/data";
 import { TrailLine } from "@/components/trail-line";
 import { Reveal } from "@/components/reveal";
 import { DragScroll } from "@/components/drag-scroll";
+import { basePath } from "@/lib/base-path";
+
+// Real photos exist for five of the fifteen cities; the rest fall back to a
+// deterministic placeholder rather than borrowing a photo of a different,
+// unrelated place.
+const cityPhotos: Record<string, { src: string; alt: string }> = {
+  Tawang: {
+    src: `${basePath}/photos/tawang-monastery.jpg`,
+    alt: "Tawang Monastery at dusk with the Arunachal Pradesh mountains behind it",
+  },
+  Shillong: {
+    src: `${basePath}/photos/meghalaya-root-bridge.jpg`,
+    alt: "A living root bridge in the Meghalaya hills near Shillong",
+  },
+  Bangkok: {
+    src: `${basePath}/photos/bangkok-skyline.jpg`,
+    alt: "The Bangkok skyline rising above Lumphini Park",
+  },
+  "Da Nang": {
+    src: `${basePath}/photos/hoi-an-night.jpg`,
+    alt: "Hoi An's lantern-lit riverfront, a short drive from Da Nang",
+  },
+  Bali: {
+    src: `${basePath}/photos/tanah-lot-bali.jpg`,
+    alt: "Tanah Lot sea temple on a rock arch off the coast of Bali",
+  },
+};
 
 const cityEntries = tracks.flatMap((track) =>
   track.cities.map((city) => ({
@@ -12,6 +39,7 @@ const cityEntries = tracks.flatMap((track) =>
     track: track.slug,
     region: track.region,
     imageSeed: `frontier-city-${city.toLowerCase().replace(/[^a-z]+/g, "-")}`,
+    photo: cityPhotos[city],
   })),
 );
 
@@ -51,8 +79,8 @@ export function DestinationsPreview() {
                 >
                   <div className="relative h-40 overflow-hidden">
                     <Image
-                      src={`https://picsum.photos/seed/${entry.imageSeed}/500/440`}
-                      alt=""
+                      src={entry.photo?.src ?? `https://picsum.photos/seed/${entry.imageSeed}/500/440`}
+                      alt={entry.photo?.alt ?? ""}
                       fill
                       draggable={false}
                       sizes="220px"

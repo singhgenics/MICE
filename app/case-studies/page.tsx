@@ -31,8 +31,8 @@ export default function CaseStudiesPage() {
               >
                 <div className="relative h-72 overflow-hidden rounded-2xl lg:h-[380px]">
                   <Image
-                    src={`https://picsum.photos/seed/${cs.imageSeed}/1000/850`}
-                    alt=""
+                    src={cs.image}
+                    alt={cs.imageAlt}
                     fill
                     priority={i === 0}
                     sizes="(min-width: 1024px) 45vw, 100vw"

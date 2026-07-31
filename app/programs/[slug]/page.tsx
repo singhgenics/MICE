@@ -46,8 +46,8 @@ export default async function ProgramPage({
             <Reveal>
               <div className="relative h-72 overflow-hidden rounded-2xl lg:h-full lg:min-h-[420px]">
                 <Image
-                  src={`https://picsum.photos/seed/${track.imageSeed}-detail/1000/1100`}
-                  alt=""
+                  src={track.imageDetail}
+                  alt={track.imageDetailAlt}
                   fill
                   priority
                   sizes="(min-width: 1024px) 45vw, 100vw"

@@ -32,8 +32,8 @@ export function CaseStudiesStack() {
                 >
                   <div className="relative h-64 md:h-full">
                     <Image
-                      src={`https://picsum.photos/seed/${cs.imageSeed}/900/700`}
-                      alt=""
+                      src={cs.image}
+                      alt={cs.imageAlt}
                       fill
                       sizes="(min-width: 768px) 45vw, 100vw"
                       className="object-cover"

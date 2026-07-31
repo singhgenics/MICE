@@ -30,8 +30,8 @@ export function ProgramsSplit() {
                 className="group relative flex h-full min-h-[360px] flex-col justify-end overflow-hidden rounded-2xl lg:min-h-[460px]"
               >
                 <Image
-                  src={`https://picsum.photos/seed/${track.imageSeed}/1000/900`}
-                  alt=""
+                  src={track.image}
+                  alt={track.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 55vw, 100vw"
                   className="group-hover-zoom object-cover transition-transform duration-700 ease-out"

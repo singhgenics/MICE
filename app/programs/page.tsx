@@ -36,8 +36,8 @@ export default function ProgramsPage() {
                 >
                   <div className="relative h-56 overflow-hidden">
                     <Image
-                      src={`https://picsum.photos/seed/${track.imageSeed}/900/600`}
-                      alt=""
+                      src={track.image}
+                      alt={track.imageAlt}
                       fill
                       priority={i === 0}
                       sizes="(min-width: 768px) 45vw, 100vw"
